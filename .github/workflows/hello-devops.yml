@@ -1,1 +1,11 @@
+name: My First DevOps Pipeline
 
+on: [push]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Run automated test step
+      run: echo "Hello! My automated DevOps pipeline is working!"
