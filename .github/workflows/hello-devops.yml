@@ -1,11 +1,17 @@
-name: My First DevOps Pipeline
+name: Build Docker Container
 
 on: [push]
 
 jobs:
-  build-and-test:
+  build-container:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Run automated test step
-      run: echo "Hello! My automated DevOps pipeline is working!"
+    - name: Checkout Code
+      uses: actions/checkout@v4
+
+    - name: Build Docker Image
+      run: docker build -t my-first-app .
+
+    - name: Run the Container
+      run: docker run my-first-app
